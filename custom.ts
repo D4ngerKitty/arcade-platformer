@@ -247,22 +247,22 @@ namespace platformer {
             this.aButtonIsPressedLastFrame = [];
 
             let registerHandlers = (ctrl: controller.Controller, index: number) => {
-                ctrl.A.addEventListener(ControllerButtonEvent.Pressed, () => {
+                browserEvents.Z.addEventListener(browserEvents.KeyEvent.Pressed, () => {
                     this.aButtonIsPressedLastFrame[index] = false;
                     this.aButtonIsPressed[index] = true;
                     this.aButtonTimer[index] = game.runtime();
                 });
 
-                ctrl.A.addEventListener(ControllerButtonEvent.Released, () => {
+                browserEvents.Z.addEventListener(browserEvents.KeyEvent.Released, () => {
                     this.aButtonIsPressed[index] = false;
                 });
 
-                ctrl.up.addEventListener(ControllerButtonEvent.Pressed, () => {
+                browserEvents.ArrowUp.addEventListener(browserEvents.KeyEvent.Pressed, () => {
                     this.upButtonIsPressed[index] = true;
                     this.upButtonTimer[index] = game.runtime();
                 });
 
-                ctrl.up.addEventListener(ControllerButtonEvent.Released, () => {
+                browserEvents.ArrowUp.addEventListener(browserEvents.KeyEvent.Released, () => {
                     this.upButtonIsPressed[index] = false;
                 });
             }
@@ -335,8 +335,8 @@ namespace platformer {
                         svx = (ctrl.right.pressureLevel() - ctrl.left.pressureLevel()) >> 1
                         svy = (ctrl.down.pressureLevel() - ctrl.up.pressureLevel()) >> 1
                     } else {
-                        svx = (ctrl.right.isPressed() ? 256 : 0) - (ctrl.left.isPressed() ? 256 : 0)
-                        svy = (ctrl.down.isPressed() ? 256 : 0) - (ctrl.up.isPressed() ? 256 : 0)
+                        svx = (browserEvents.ArrowRight.isPressed() ? 256 : 0) - (browserEvents.ArrowLeft.isPressed() ? 256 : 0)
+                        svy = (browserEvents.ArrowDown.isPressed() ? 256 : 0) - (browserEvents.ArrowUp.isPressed() ? 256 : 0)
                     }
                 }
                 else {

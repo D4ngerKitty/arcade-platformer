@@ -1,21 +1,27 @@
 {
     "name": "arcade-platformer",
     "version": "0.0.13",
+    "dependencies": {
+        "device": "*",
+        "browser-events": "*"
+    },
     "files": [
         "custom.ts",
         "animations.ts",
         "api.ts",
         "main.ts"
     ],
-    "supportedTargets": [
-        "arcade"
-    ],
-    "dependencies": {
-        "device": "*"
-    },
-    "testDependencies": {},
     "testFiles": [
         "testAssets.ts",
         "test.ts"
-    ]
+    ],
+    "testDependencies": {},
+    "targetVersions": {
+        "target": "2.0.63",
+        "targetId": "arcade"
+    },
+    "supportedTargets": [
+        "arcade"
+    ],
+    "preferredEditor": "tsprj"
 }
